@@ -100,6 +100,7 @@ void _rotr(stack_t **stack, unsigned int line_numb);
 
 /* main */
 void free_vglo(void);
+global_t vglo;
 
 
 #endif /* MONTY_H */
