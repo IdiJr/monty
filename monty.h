@@ -74,7 +74,7 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 void *_calloc(unsigned int nmemb, unsigned int size);
 int _strcmp(char *s1, char *s2);
 
-/*get_opcode func*/
+/*run_opcodes*/
 void (*get_opcodes(char *opc))(stack_t **stack, unsigned int line_number);
 
 extern global_t vglo;
