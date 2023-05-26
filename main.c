@@ -1,4 +1,7 @@
 #include "monty.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 /**
  * free_vglo - frees the global variables
@@ -42,7 +45,7 @@ FILE *check_input(int argc, char *argv[])
 
 	if (argc == 1 || argc > 2)
 	{
-		dprintf(2, "USAGE: monty file\n");
+		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
 
@@ -50,7 +53,7 @@ FILE *check_input(int argc, char *argv[])
 
 	if (fd == NULL)
 	{
-		dprintf(2, "Error: Can't open file %s\n", argv[1]);
+		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
 
@@ -81,10 +84,9 @@ int main(int argc, char *argv[])
 		if (lines[0] && lines[0][0] != '#')
 		{
 			f = get_opcodes(lines[0]);
-			if (!f)
+			if (f == NULL)
 			{
-				fprintf(stderr, "L%u: ", vglo.line_num);
-				dprintf(2, "unknown instruction %s\n", lines[0]);
+				fprintf(stderr, "L%u: unknown instruction %s\n", vglo.line_num, lines[0]);
 				free_vglo();
 				exit(EXIT_FAILURE);
 			}

@@ -101,6 +101,6 @@ void _rotr(stack_t **stack, unsigned int line_numb);
 /* main */
 void free_vglo(void);
 global_t vglo;
-
+ssize_t getline(char **lineptr, size_t *n, FILE *stream);
 
 #endif /* MONTY_H */
